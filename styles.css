@@ -55,8 +55,16 @@ h2 {
     color: #4a4aef;
 }
 
-/* --- Card Styling --- */
+/* --- Card Styling (Education / Projects / Generic Cards) --- */
 .card {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* --- Certifications / Languages / Interests as Cards --- */
+.list-card {
     background: white;
     padding: 15px 20px;
     border-radius: 8px;
