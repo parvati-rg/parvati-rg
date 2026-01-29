@@ -1,17 +1,33 @@
-// Simple scroll animation
-document.addEventListener("scroll", () => {
-    document.querySelectorAll("section").forEach(section => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-            section.style.opacity = 1;
-            section.style.transform = "translateY(0)";
-        }
+// Smooth scroll for internal links (future-proof)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))
+            .scrollIntoView({ behavior: 'smooth' });
     });
 });
 
-// Initial fade/slide style
-document.querySelectorAll("section").forEach(sec => {
-    sec.style.opacity = 0;
-    sec.style.transform = "translateY(20px)";
-    sec.style.transition = "all 0.6s ease-out";
+// Simple welcome message
+window.addEventListener('load', () => {
+    console.log("Welcome to Parvati Ramesh Gundur's Portfolio 🚀");
 });
+
+// Highlight skills on hover (small UX touch)
+const skills = document.querySelectorAll('.skills li');
+
+skills.forEach(skill => {
+    skill.addEventListener('mouseenter', () => {
+        skill.style.transform = 'scale(1.1)';
+        skill.style.transition = '0.2s';
+    });
+
+    skill.addEventListener('mouseleave', () => {
+        skill.style.transform = 'scale(1)';
+    });
+});
+
+// Dynamic year in footer
+const footer = document.querySelector('footer p');
+const year = new Date().getFullYear();
+footer.innerHTML = `© ${year} Parvati Ramesh Gundur`;
+
